@@ -1,0 +1,23 @@
+library(DiagrammeR)
+mermaid("
+gantt
+dateFormat  YYYY-MM-DD
+title Proposed planning (Phase 2)
+
+section Initiation
+Initiation (agreement signed)           :active,        first_1,    2020-05-04, 1d
+Questions & methodology design approval :active,        first_2,    2020-05-08, 2020-05-12
+Invitation & confirmation participants  :active,        first_3,    2020-05-22, 1d
+
+section Focus Groups
+Meetings Pay[.]aw               :crit, done,    import_1,   2020-05-25,5d
+1on1 interviews (Zoom)        :crit, done,    import_2,   2020-06-01, 6d
+
+section Report
+First draft report   :               extras_1,   2020-06-12,1d
+Recieve feedback on first draft    :               extras_2,   2020-06-19,1d
+Submit final report            : crit,               extras_4,   2020-06-26,1d
+") # create your plot
+
+htmlwidgets::saveWidget(m, file="m.html")
+webshot::webshot("m.html", "m.png")
